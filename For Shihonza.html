@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Shihonza</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6efe3;--card:#fffaf0;--ink:#3b2f2a;--soft:#7a6a60;--leaf:#6f8f72;--seal:#8c2f39;--line:#e4d8c3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1916;--card:#26201c;--ink:#f1e7d8;--soft:#b3a393;--leaf:#8fb293;--seal:#b4474f;--line:#3a312b}}
+:root[data-theme="dark"]{--bg:#1d1916;--card:#26201c;--ink:#f1e7d8;--soft:#b3a393;--leaf:#8fb293;--seal:#b4474f;--line:#3a312b}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif}
+body{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.screen{display:none;width:100%;max-width:520px;text-align:center;animation:rise .8s ease both}
+.screen.on{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:34px 26px;box-shadow:0 10px 30px rgba(0,0,0,.08);position:relative}
+h1{font-size:2.1rem;font-weight:600;margin:.2em 0 .4em}
+h2{font-size:1.7rem;font-weight:600;margin:.2em 0 .6em}
+p,li{font-size:1.3rem;line-height:1.55;margin:.6em 0}
+ul{list-style:none;padding:0;margin:.6em 0;text-align:left}
+li{padding-left:1.4em;position:relative}
+li::before{content:"❦";position:absolute;left:0;color:var(--leaf);font-size:1rem;top:.15em}
+.soft{color:var(--soft);font-style:italic}
+.sign{font-size:1.5rem;margin-top:1.2em;font-style:italic}
+button{font-family:inherit;font-size:1.15rem;background:var(--seal);color:#fff;border:0;border-radius:999px;padding:.6em 1.6em;margin:.5em .3em 0;cursor:pointer}
+button.ghost{background:transparent;color:var(--soft);border:1px solid var(--line)}
+.env{position:relative;width:min(320px,88vw);height:210px;margin:0 auto 18px;background:var(--card);border:1px solid var(--line);border-radius:6px;box-shadow:0 12px 30px rgba(0,0,0,.12);cursor:pointer;transition:transform .3s}
+.env:hover{transform:translateY(-3px)}
+.env svg.flap{position:absolute;inset:0;width:100%;height:100%}
+.seal{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--seal),#5e1c24);display:flex;align-items:center;justify-content:center;color:#f6dede;font-size:1.6rem;box-shadow:0 3px 8px rgba(0,0,0,.35)}
+.leaf{position:absolute;width:70px;opacity:.9;animation:sway 5s ease-in-out infinite;transform-origin:bottom center}
+.l1{left:-14px;bottom:-10px}.l2{right:-14px;bottom:-10px;animation-delay:-2.5s;transform:scaleX(-1)}
+@keyframes sway{0%,100%{rotate:-4deg}50%{rotate:5deg}}
+.dots{margin-top:14px;color:var(--soft);letter-spacing:.3em}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<section class="screen on" id="s0">
+  <div class="env" onclick="go(1)" role="button" aria-label="Open the letter">
+    <svg class="flap" viewBox="0 0 320 210" preserveAspectRatio="none"><path d="M0 0 L160 120 L320 0" fill="none" stroke="var(--line)" stroke-width="2"/><path d="M0 210 L120 105 M320 210 L200 105" fill="none" stroke="var(--line)" stroke-width="2"/></svg>
+    <div class="seal">♡</div>
+    <svg class="leaf l1" viewBox="0 0 60 100"><path d="M30 98 C30 60 28 30 30 4" stroke="var(--leaf)" stroke-width="2" fill="none"/><path d="M30 70 C10 62 6 48 8 38 C22 42 30 54 30 70Z M30 50 C48 44 54 30 52 20 C38 24 30 36 30 50Z" fill="var(--leaf)"/></svg>
+    <svg class="leaf l2" viewBox="0 0 60 100"><path d="M30 98 C30 60 28 30 30 4" stroke="var(--leaf)" stroke-width="2" fill="none"/><path d="M30 70 C10 62 6 48 8 38 C22 42 30 54 30 70Z M30 50 C48 44 54 30 52 20 C38 24 30 36 30 50Z" fill="var(--leaf)"/></svg>
+  </div>
+  <p class="soft">A letter for Shihonza</p>
+  <button onclick="go(1)">Open</button>
+</section>
+
+<section class="screen" id="s1">
+  <div class="card">
+    <h1>Shihonza, I'm sorry.</h1>
+    <p>I sent you harsh messages, and I know they hurt you. I'm not going to make excuses or explain them away.</p>
+    <p class="soft">You deserved kindness from me, and I didn't give it.</p>
+  </div>
+  <div class="dots">● ○ ○ ○</div>
+  <button class="ghost" onclick="go(0)">Back</button><button onclick="go(2)">Next</button>
+</section>
+
+<section class="screen" id="s2">
+  <div class="card">
+    <h2>What I got wrong</h2>
+    <ul>
+      <li>I spoke to you in anger instead of with care.</li>
+      <li>I made things harder for you when I should have made them lighter.</li>
+      <li>I let my frustration land on you, and you didn't deserve it.</li>
+      <li>[Add something specific that you know you did.]</li>
+    </ul>
+  </div>
+  <div class="dots">○ ● ○ ○</div>
+  <button class="ghost" onclick="go(1)">Back</button><button onclick="go(3)">Next</button>
+</section>
+
+<section class="screen" id="s3">
+  <div class="card">
+    <h2>What I'll do differently</h2>
+    <ul>
+      <li>When I'm upset, I'll step away and calm down before I reply.</li>
+      <li>I'll listen to you first, before I defend myself.</li>
+      <li>I'll tell you what's bothering me honestly and gently.</li>
+      <li>I'll show it in how I act, not just in what I say.</li>
+    </ul>
+  </div>
+  <div class="dots">○ ○ ● ○</div>
+  <button class="ghost" onclick="go(2)">Back</button><button onclick="go(4)">Next</button>
+</section>
+
+<section class="screen" id="s4">
+  <div class="card">
+    <h2>No pressure</h2>
+    <p>You don't have to answer or forgive me right now. Take all the time you need.</p>
+    <p>I just wanted you to know that I see what I did, I'm truly sorry, and I care about you.</p>
+    <p class="sign">Nathan</p>
+  </div>
+  <div class="dots">○ ○ ○ ●</div>
+  <button class="ghost" onclick="go(3)">Back</button><button class="ghost" onclick="go(0)">Read again</button>
+</section>
+
+<script>
+function go(n){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on')});
+  document.getElementById('s'+n).classList.add('on');
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
